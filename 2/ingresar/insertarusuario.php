@@ -20,6 +20,6 @@ echo"USUARIO INGRESADO.";
 
 
       
-<a href="ingresarusuario.php">INGRESAR OTRO ALUMNO</a>
+<a href="ingresarusuario.php">INGRESAR OTRO USUARIO</a>
 <a href="http://localhost/2/">HOME
 </a>
