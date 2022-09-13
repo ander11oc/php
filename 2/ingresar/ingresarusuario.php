@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresar Alumno</title>
+    <title>Ingresar usuario</title>
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -37,12 +37,20 @@
             </div>
       </div>
       <br>
-  <select class="browser-default" name="cursos">
-    <option value="" disabled selected>Seleccione curso</option>
-    <option value="1">PHP</option>
-    <option value="2">HTML </option>
-    <option value="3">CSS </option>
-  </select>
+      Seleccione el curso:
+    <select name="codigocurso">
+      <?php
+      $conexion = mysqli_connect("localhost", "root", "", "practica") or
+        die("Problemas con la conexión");
+
+      $registros = mysqli_query($conexion, "select codigo,nombre from cursos") or
+        die("Problemas en el select:" . mysqli_error($conexion));
+      while ($reg = mysqli_fetch_array($registros)) {
+        echo "<option value=\"$reg[codigo]\">$reg[nombre]</option>";
+      }
+      ?>
+    </select>
+    <br>
 <br>
 <br>
 <br>  
@@ -55,7 +63,7 @@
 
 </form>
 <br>
-<a href="http://localhost/anderson/2/">HOME
+<a href="http://localhost/2/">HOME
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>    
 </body>

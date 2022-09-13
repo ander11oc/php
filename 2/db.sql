@@ -13,7 +13,7 @@ nombre */
 
 CREATE TABLE cursos(
 	codigo int(20) AUTO_INCREMENT PRIMARY KEY,
-	nombre varchar(50), 
+	nombre varchar(50)
 );
 CREATE TABLE usuarios(
 	nombre varchar(50),

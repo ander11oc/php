@@ -8,7 +8,7 @@ INSERT INTO usuarios(nombre,mail,codigo_curso)
 values 
 ('$_REQUEST[nombre]',
 '$_REQUEST[email]',
-'$_REQUEST[cursos]')")
+'$_REQUEST[codigocurso]')")
  or die ("problemas en el query".mysqli_error($conexion));
 
 mysqli_close($conexion);
@@ -21,5 +21,5 @@ echo"USUARIO INGRESADO.";
 
       
 <a href="ingresarusuario.php">INGRESAR OTRO ALUMNO</a>
-<a href="http://localhost/anderson/2/">HOME
+<a href="http://localhost/2/">HOME
 </a>

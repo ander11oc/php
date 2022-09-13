@@ -15,4 +15,4 @@ echo"CURSO INGRESADO.";
 <a href="ingresarcurso.php">INGRESAR OTRO CURSO</a>
 <br>
 <br>
-<a href="http://localhost/anderson/2/">HOME
+<a href="http://localhost/2/">HOME
