@@ -1,5 +1,5 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
  <!--Import Google Icon Font-->
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -33,26 +33,39 @@
           </ul>
         </div>
       </nav>
+<body style="text-align:center">
+<?php
+  $conexion = mysqli_connect("localhost", "root", "", "practica") or
+    die("Problemas con la conexión");
 
-    <?php
-    $conexion = mysqli_connect("localhost", "root", "", "practica") or
-        die("Problemas con la conexión");
+    $registros = mysqli_query($conexion, "select count(*) as cantidad from usuarios") or
+    die("Problemas en el select:" . mysqli_error($conexion));
+  $reg = mysqli_fetch_array($registros);
+  echo "La cantidad de usuarios inscriptos son :" . $reg['cantidad']; 
+    echo "<br>","<br>";
 
-    $registros = mysqli_query($conexion, "update usuarios
-                        set codigo_curso='$_REQUEST[codigocurso]',
-                         nombre='$_REQUEST[nombreViejo]'
-                        where mail='$_REQUEST[mailviejo]'") or
+
+  
+
+
+    
+  $registros = mysqli_query($conexion, "select cur.nombre as  nombrecurso, mail, codigo_curso, usu.nombre 
+from usuarios as usu
+inner join cursos as cur on cur.codigo=usu.codigo_curso") or
         die("Problemas en el select:" . mysqli_error($conexion));
-    echo "El curso fue modificado con exito";
-    ?>
-<br>
-<br>    
-<a href="http://localhost/ANDERSON/2/buscarusuario.php">MOFICIAR OTRO USUARIO</a>
-<br>
+
+  while ($reg = mysqli_fetch_array($registros)) {
+    echo "Nombre:" . $reg['nombre'] . "<br>";
+    echo "Mail:" . $reg['mail'] . "<br>";
+    echo "Curso:" . $reg['nombrecurso'] . "<br>";
+    echo "<hr>";
+  }
+  mysqli_close($conexion);
+  ?>
 <br>
 
 
-<script type="text/javascript" src="js/materialize.min.js"></script>  
+ <!--JavaScript at end of body for optimized loading-->
+ <script type="text/javascript" src="js/materialize.min.js"></script>    
 </body>
-
 </html>

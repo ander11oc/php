@@ -63,7 +63,7 @@
 
 </form>
 <br>
-<a href="http://localhost/2/">HOME
+<a href="http://localhost/ANDERSON/2/">HOME
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>    
 </body>
